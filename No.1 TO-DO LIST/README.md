@@ -1,10 +1,10 @@
-#No1. Todo list - Simple ver.
-##To-do List 구현
+# No1. Todo list - Simple ver.
+## To-do List 구현
 **2025.09.07**
 
 <img width="2360" height="1754" alt="image" src="https://github.com/user-attachments/assets/b00f539e-69b3-4dbc-b009-4e72fe0a6268" />
 
-##개념공부
+## 개념공부
 ### `Flex: 1`;
 - `flex-grow: 1, flex-shrink: 1, flex-basis: 0` 세 가지 속성을 축약한 것
 - flex 아이템이 컨테이너의 공간에 맞춰 유연하게 동작
@@ -24,8 +24,8 @@
 - `localStorage.getItem(key)`
 - `localStorage.setItem(key, value)`
 
-##인사이트
-###클릭 이벤트와 엔터 이벤트
+## 인사이트
+### 클릭 이벤트와 엔터 이벤트
 - 레퍼런스 내 클릭 이벤트 외 엔터 이벤트도 작동하도록 구현 시도
 
 ---
