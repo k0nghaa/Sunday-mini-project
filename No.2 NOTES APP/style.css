@@ -1,0 +1,102 @@
+:root {
+  --background-color: #283618;
+  --main-color: #fefae0;
+  --secondary-color: #606c38;
+  --point-color: #bc6c25;
+  --point-secondary-color: #dda15e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--main-color);
+  padding: 4% 10%;
+}
+
+.container h1 {
+  display: flex;
+  align-items: center;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.container h1 img {
+  width: 38px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  margin-right: 20px;
+}
+
+.container button {
+  display: flex;
+  align-items: center;
+  background-color: var(--point-color);
+  color: var(--main-color);
+  font-size: 16px;
+  outline: none;
+  border: 0;
+  border-radius: 40px;
+  padding: 15px 25px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--secondary-color); /* 커스텀 포커스 스타일 */
+  outline-offset: 2px;
+  border-radius: 40px;
+}
+
+.container button img {
+  width: 25px;
+  margin-right: 8px;
+}
+
+.head-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  position: relative;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  min-height: 150px;
+  background-color: var(--main-color);
+  color: var(--background-color);
+  padding: 20px;
+  margin: 20px 0;
+  outline: none;
+  border-radius: 5px;
+}
+
+.input-box:focus-visible {
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 2px;
+  border-radius: 5px;
+}
+
+.notes-container {
+  position: relative;
+}
+
+.input-box img {
+  width: 30px;
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  cursor: pointer;
+}
