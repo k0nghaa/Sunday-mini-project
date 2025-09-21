@@ -33,8 +33,8 @@
 ### form 의 기본 동작과 `e.preventDefault()`
 
 - form 의 기본 동작: 엔터를 누르거나 submit 버튼을 누르면 페이지가 새로고침되며 서버로 데이터를 보내려 함
-- input에 글을 작성하고 button을 눌러 submit할 때,
-  **e.preventDefault(); 가 없으면?** - form의 submit 이벤트가 발생하여 새로고침 됨 -> input 값 초기화
+- input에 글을 작성하고 button을 눌러 submit할 때, <br>
+  **e.preventDefault(); 가 없으면?** - form의 submit 이벤트가 발생하여 새로고침 됨 -> input 값 초기화 <br>
   **e.preventDefault(); 가 있으면?** - 새로고침을 막아 리액트 state로 글 처리 가능
 
 ---
