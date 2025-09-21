@@ -5,7 +5,10 @@ import { Todo } from "./Todo";
 uuidv4();
 
 export const TodoWrapper = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const saved = localStorage.getItem("todos");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   const addTodo = (todo) => {
     setTodos([
