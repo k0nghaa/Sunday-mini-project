@@ -1,12 +1,13 @@
 # Sunday-mini-project
+
 Hello, World! <br>
 Welcome to k0nghaa's mini projects — a small adventure every Sunday.
 
 Step by step, I'll keep improving. <br>
-Maybe one day, a big challenge awaits. 👾 
+Maybe one day, a big challenge awaits. 👾
 
+## 📁 Projects
 
-
-## 📁 Projects 
 - 📂 **No.1** TO-DO LIST (Simple ver.)
- 
+- 📂 **No.2** NOTES APP (Simple ver.)
+- 📂 **No.3** TO-DO LIST(react)

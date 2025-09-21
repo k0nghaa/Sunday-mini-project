@@ -1,12 +1,43 @@
-# React + Vite
+# No3. Todo List - react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## React로 TodoList 구현
 
-Currently, two official plugins are available:
+**2025.09.21**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![alt text](image.png)
 
-## Expanding the ESLint configuration
+## 인사이트
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Edit Form 관련
+
+<레퍼런스 - TodoForm의 내용을 모두 복사해 EditTodoForm에서 사용>
+
+- 불필요한 중복 코드가 발생할 수 있을 것이라 판단함
+- 이외 문제: 컴포넌트 확장성 떨어짐
+
+- 개선: 하나의 재사용 가능한 Form으로 통합(prop으로 동작을 바꾸는 방식)
+
+## 개념공부 (새로 알게된 것 & 복습)
+
+### FontAwesome 설치 및 사용
+
+### rafc 스니펫
+
+- 확장 프로그램 설치
+
+### uuid 라이브러리
+
+- 리액트 라이브러리
+- 고유한 id값을 자동으로 추가해줌
+
+### <form> 의 기본 동작과 `e.preventDefault()`
+
+- <form>의 기본 동작: 엔터를 누르거나 submit 버튼을 누르면 페이지가 새로고침되며 서버로 데이터를 보내려 함
+- input에 글을 작성하고 button을 눌러 submit할 때,
+  **e.preventDefault(); 가 없으면?** - form의 submit 이벤트가 발생하여 새로고침 됨 -> input 값 초기화
+  **e.preventDefault(); 가 있으면?** - 새로고침을 막아 리액트 state로 글 처리 가능
+
+---
+
+레퍼런스
+https://www.youtube.com/watch?v=LoYbN6qoQHA
