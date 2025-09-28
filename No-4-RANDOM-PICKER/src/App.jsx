@@ -3,13 +3,7 @@ import ResultList from './components/ResultList';
 import RandomPicker from './components/RandomPicker';
 
 function App() {
-  return (
-    <>
-      <SearchBar />
-      <ResultList />
-      <RandomPicker />
-    </>
-  );
+  return <></>;
 }
 
 export default App;
