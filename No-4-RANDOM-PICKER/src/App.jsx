@@ -23,7 +23,7 @@ function App() {
       <SearchBar setSearchKeyword={setSearchKeyword} />
       <main className="flex flex-1">
         <div className="flex-1 p-4 overflow-y-auto">
-          <ResultList results={filteredResults} />
+          <ResultList results={filteredResults} searchKeyword={searchKeyword} />
         </div>
         <aside className="w-1/3 p-4 bg-gray-100 border-l">
           <RandomPicker />
