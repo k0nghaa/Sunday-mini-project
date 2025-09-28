@@ -26,7 +26,7 @@ function App() {
           <ResultList results={filteredResults} searchKeyword={searchKeyword} />
         </div>
         <aside className="w-1/3 p-4 bg-gray-100 border-l">
-          <RandomPicker />
+          <RandomPicker results={filteredResults} />
         </aside>
       </main>
     </div>
