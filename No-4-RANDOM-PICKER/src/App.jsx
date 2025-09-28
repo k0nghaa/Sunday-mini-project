@@ -19,7 +19,7 @@ function App() {
   });
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50">
+    <div className="flex flex-col h-screen bg-gray-50 px-6 max-w-6xl mx-auto">
       <SearchBar setSearchKeyword={setSearchKeyword} />
       <main className="flex flex-1">
         <div className="flex-1 p-4 overflow-y-auto">
