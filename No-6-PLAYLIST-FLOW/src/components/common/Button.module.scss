@@ -1,0 +1,59 @@
+@import "../../styles/variables.scss";
+
+.button {
+  border-radius: $radius-md;
+  font-weight: 500;
+  transition: all $transition;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  // Variants
+  &.primary {
+    background-color: $primary;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: $primary-hover;
+    }
+  }
+
+  &.secondary {
+    background-color: $secondary-light;
+    color: $text-primary;
+
+    &:hover:not(:disabled) {
+      background-color: $border;
+    }
+  }
+
+  &.danger {
+    background-color: $danger;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: $danger-hover;
+    }
+  }
+
+  // Sizes
+  &.small {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.875rem;
+  }
+
+  &.medium {
+    padding: $spacing-sm $spacing-md;
+    font-size: 1rem;
+  }
+
+  &.large {
+    padding: $spacing-md $spacing-lg;
+    font-size: 1.125rem;
+  }
+}

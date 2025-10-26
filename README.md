@@ -11,3 +11,6 @@ Maybe one day, a big challenge awaits. 👾
 - 📂 **No.1** TO-DO LIST (Simple ver.)
 - 📂 **No.2** NOTES APP (Simple ver.)
 - 📂 **No.3** TO-DO LIST(react)
+- 📂 **No.4** RANDOM PICKER
+- 📂 **No.5** SHARE SCHEDULE APP
+- 📂 **🔥No.6** PLAYLIST FLOW
