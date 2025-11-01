@@ -24,6 +24,9 @@ createBtn.addEventListener("click", () => {
 
   note.append(inputBox, img);
   notesContainer.append(note);
+
+  inputBox.focus();
+
   updateStorage();
 });
 
