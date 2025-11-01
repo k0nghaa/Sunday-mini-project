@@ -12,24 +12,27 @@ function updateStorage() {
 }
 
 createBtn.addEventListener("click", () => {
-  let inputBox = document.createElement("p");
-  let img = document.createElement("img");
+  const note = document.createElement("div");
+  const inputBox = document.createElement("p");
+  const img = document.createElement("img");
+
+  note.className = "note";
   inputBox.className = "input-box";
   inputBox.setAttribute("contenteditable", "true");
   img.src = "images/can.png";
-  notesContainer.appendChild(inputBox).appendChild(img);
+  img.alt = "휴지통 아이콘";
+
+  note.append(inputBox, img);
+  notesContainer.append(note);
+  updateStorage();
 });
 
-notesContainer.addEventListener("click", function (e) {
+notesContainer.addEventListener("click", (e) => {
   if (e.target.tagName === "IMG") {
-    e.target.parentElement.remove();
+    e.target.closest(".note").remove();
     updateStorage();
-  } else if (e.target.tagName === "P") {
-    notes = document.querySelectorAll(".input-box");
-    notes.forEach((note) => {
-      note.onkeyup = function () {
-        updateStorage();
-      };
-    });
+  } else if (e.target.classList.contains("input-box")) {
+    const note = e.target;
+    note.onkeyup = () => updateStorage();
   }
 });

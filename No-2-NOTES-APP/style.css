@@ -92,11 +92,11 @@ button:focus-visible {
   border-radius: 5px;
 }
 
-.notes-container {
+.note {
   position: relative;
 }
 
-.input-box img {
+.note img {
   width: 30px;
   position: absolute;
   bottom: 15px;
