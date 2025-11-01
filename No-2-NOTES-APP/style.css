@@ -14,6 +14,7 @@
 }
 
 .container {
+  min-width: 345px;
   width: 100%;
   min-height: 100vh;
   background-color: var(--background-color);
@@ -70,6 +71,7 @@ button:focus-visible {
   border-radius: 5px;
   padding: 0 30px;
   position: relative;
+  gap: 18px;
 }
 
 .input-box {
@@ -100,4 +102,14 @@ button:focus-visible {
   bottom: 15px;
   right: 10px;
   cursor: pointer;
+}
+
+@media (max-width: 497px) {
+  button span {
+    display: none;
+  }
+
+  .container button img {
+    margin: 0px;
+  }
 }
