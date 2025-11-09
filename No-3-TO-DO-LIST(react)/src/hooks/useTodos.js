@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const STORAGE_KEY = "todos";
@@ -17,43 +17,43 @@ export const useTodos = () => {
     }
   }, [todos]);
 
-  const addTodo = (todo) => {
+  const addTodo = useCallback((todo) => {
     const newTodo = {
       id: uuidv4(),
       task: todo,
       completed: false,
       isEditing: false,
     };
-    setTodos([...todos, newTodo]);
-  };
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
+  }, []);
 
-  const toggleComplete = (id) => {
-    setTodos(
-      todos.map((todo) =>
+  const toggleComplete = useCallback((id) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
-  };
+  }, []);
 
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+  const deleteTodo = useCallback((id) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  }, []);
 
-  const editTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
+  const editTodo = useCallback((id) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
         todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
       )
     );
-  };
+  }, []);
 
-  const updateTodo = (id, newTask) => {
-    setTodos(
-      todos.map((todo) =>
+  const updateTodo = useCallback((id, newTask) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
         todo.id === id ? { ...todo, task: newTask, isEditing: false } : todo
       )
     );
-  };
+  }, []);
 
   return {
     todos,
