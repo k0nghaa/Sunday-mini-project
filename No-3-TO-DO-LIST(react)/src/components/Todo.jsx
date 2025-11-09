@@ -17,16 +17,21 @@ export const Todo = ({ todo, onToggle, onDelete, onEdit, onUpdate }) => {
         <>
           <p
             onClick={() => onToggle(todo.id)}
-            className={`${todo.completed ? "completed" : ""}`}
+            className={`${todo.completed ? "completed" : "incompleted"}`}
           >
             {todo.task}
           </p>
           <div>
             <FontAwesomeIcon
+              className="edit-icon"
               icon={faPenToSquare}
               onClick={() => onEdit(todo.id)}
             />
-            <FontAwesomeIcon icon={faTrash} onClick={() => onDelete(todo.id)} />
+            <FontAwesomeIcon
+              className="delete-icon"
+              icon={faTrash}
+              onClick={() => onDelete(todo.id)}
+            />
           </div>
         </>
       )}
