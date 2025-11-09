@@ -1,58 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { TodoForm } from "./TodoForm";
-import { v4 as uuidv4 } from "uuid";
 import { Todo } from "./Todo";
-
-const STORAGE_KEY = "todos";
+import { useTodos } from "../hooks/useTodos";
 
 export const TodoWrapper = () => {
-  const [todos, setTodos] = useState(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
-    } catch (error) {
-      console.error("저장 실패", error);
-    }
-  }, [todos]);
-
-  const addTodo = (todo) => {
-    setTodos([
-      ...todos,
-      { id: uuidv4(), task: todo, completed: false, isEditing: false },
-    ]);
-  };
-
-  const toggleComplete = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  const editTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, isEditing: !todo.isEditing } : todo
-      )
-    );
-  };
-
-  const updateTodo = (id, newTask) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, task: newTask, isEditing: false } : todo
-      )
-    );
-  };
+  const { todos, addTodo, toggleComplete, deleteTodo, editTodo, updateTodo } =
+    useTodos();
 
   return (
     <div className="TodoWrapper">
@@ -60,8 +13,8 @@ export const TodoWrapper = () => {
       <TodoForm addTodo={addTodo} />
       {todos.map((todo) => (
         <Todo
-          todo={todo}
           key={todo.id}
+          todo={todo}
           onToggle={toggleComplete}
           onDelete={deleteTodo}
           onEdit={editTodo}
