@@ -3,14 +3,16 @@ import { TodoForm } from "./TodoForm";
 import { v4 as uuidv4 } from "uuid";
 import { Todo } from "./Todo";
 
+const STORAGE_KEY = "todos";
+
 export const TodoWrapper = () => {
   const [todos, setTodos] = useState(() => {
-    const saved = localStorage.getItem("todos");
+    const saved = localStorage.getItem(STORAGE_KEY);
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
 
   const addTodo = (todo) => {
