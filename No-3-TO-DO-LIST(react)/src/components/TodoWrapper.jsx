@@ -12,7 +12,11 @@ export const TodoWrapper = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+    } catch (error) {
+      console.error("저장 실패", error);
+    }
   }, [todos]);
 
   const addTodo = (todo) => {
