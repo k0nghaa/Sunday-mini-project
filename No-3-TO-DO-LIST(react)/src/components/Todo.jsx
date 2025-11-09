@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { TodoForm } from "./TodoForm";
 
-export const Todo = ({ todo, onToggle, onDelete, onEdit, onUpdate }) => {
+const TodoComponent = ({ todo, onToggle, onDelete, onEdit, onUpdate }) => {
   return (
     <div className="Todo">
       {todo.isEditing ? (
@@ -38,3 +38,5 @@ export const Todo = ({ todo, onToggle, onDelete, onEdit, onUpdate }) => {
     </div>
   );
 };
+
+export const Todo = memo(TodoComponent);
