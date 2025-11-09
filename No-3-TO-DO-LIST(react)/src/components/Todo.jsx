@@ -1,40 +1,36 @@
-import React from "react";
+import React, { memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { TodoForm } from "./TodoForm";
 
-export const Todo = ({
-  task,
-  toggleComplete,
-  deleteTodo,
-  editTodo,
-  updateTodo,
-}) => {
+const TodoComponent = ({ todo, onToggle, onDelete, onEdit, onUpdate }) => {
   return (
     <div className="Todo">
-      {task.isEditing ? (
+      {todo.isEditing ? (
         <TodoForm
           isEditing={true}
-          initialValue={task.task}
-          onSubmit={(text) => updateTodo(task.id, text)}
+          initialValue={todo.task}
+          onSubmit={(text) => onUpdate(todo.id, text)}
         />
       ) : (
         <>
           <p
-            onClick={() => toggleComplete(task.id)}
-            className={`${task.completed ? "completed" : ""}`}
+            onClick={() => onToggle(todo.id)}
+            className={`${todo.completed ? "completed" : "incompleted"}`}
           >
-            {task.task}
+            {todo.task}
           </p>
           <div>
             <FontAwesomeIcon
+              className="edit-icon"
               icon={faPenToSquare}
-              onClick={() => editTodo(task.id)}
+              onClick={() => onEdit(todo.id)}
             />
             <FontAwesomeIcon
+              className="delete-icon"
               icon={faTrash}
-              onClick={() => deleteTodo(task.id)}
+              onClick={() => onDelete(todo.id)}
             />
           </div>
         </>
@@ -42,3 +38,5 @@ export const Todo = ({
     </div>
   );
 };
+
+export const Todo = memo(TodoComponent);
