@@ -4,38 +4,29 @@ import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { TodoForm } from "./TodoForm";
 
-export const Todo = ({
-  task,
-  toggleComplete,
-  deleteTodo,
-  editTodo,
-  updateTodo,
-}) => {
+export const Todo = ({ todo, onToggle, onDelete, onEdit, onUpdate }) => {
   return (
     <div className="Todo">
-      {task.isEditing ? (
+      {todo.isEditing ? (
         <TodoForm
           isEditing={true}
-          initialValue={task.task}
-          onSubmit={(text) => updateTodo(task.id, text)}
+          initialValue={todo.task}
+          onSubmit={(text) => onUpdate(todo.id, text)}
         />
       ) : (
         <>
           <p
-            onClick={() => toggleComplete(task.id)}
-            className={`${task.completed ? "completed" : ""}`}
+            onClick={() => onToggle(todo.id)}
+            className={`${todo.completed ? "completed" : ""}`}
           >
-            {task.task}
+            {todo.task}
           </p>
           <div>
             <FontAwesomeIcon
               icon={faPenToSquare}
-              onClick={() => editTodo(task.id)}
+              onClick={() => onEdit(todo.id)}
             />
-            <FontAwesomeIcon
-              icon={faTrash}
-              onClick={() => deleteTodo(task.id)}
-            />
+            <FontAwesomeIcon icon={faTrash} onClick={() => onDelete(todo.id)} />
           </div>
         </>
       )}

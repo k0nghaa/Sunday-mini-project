@@ -60,12 +60,12 @@ export const TodoWrapper = () => {
       <TodoForm addTodo={addTodo} />
       {todos.map((todo) => (
         <Todo
-          task={todo}
+          todo={todo}
           key={todo.id}
-          toggleComplete={toggleComplete}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-          updateTodo={updateTodo}
+          onToggle={toggleComplete}
+          onDelete={deleteTodo}
+          onEdit={editTodo}
+          onUpdate={updateTodo}
         />
       ))}
     </div>
