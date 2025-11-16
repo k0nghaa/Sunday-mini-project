@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const RandomPicker = ({ results }) => {
   const [selected, setSelected] = useState(null);
@@ -18,15 +18,18 @@ const RandomPicker = ({ results }) => {
       >
         돌리기
       </button>
-      {selected ? (
-        <div className="mb-3 p-2 border rounded bg-gray-50">
-          <h3 className="font-semibold">{selected.title}</h3>
-          <p className="text-gray-600">{selected.genre}</p>
-          <p className="text-gray-700">{selected.description}</p>
-        </div>
-      ) : (
-        <p className="mt-4 text-gray-600">랜덤으로 추천 받아보세요!</p>
-      )}
+
+      <div className="w-full min-h-[200px] flex items-start justify-center">
+        {selected ? (
+          <div className="mb-3 p-2 border rounded bg-gray-50">
+            <h3 className="font-semibold">{selected.title}</h3>
+            <p className="text-gray-600">{selected.genre}</p>
+            <p className="text-gray-700">{selected.description}</p>
+          </div>
+        ) : (
+          <p className="mt-4 text-gray-600">랜덤으로 추천 받아보세요!</p>
+        )}
+      </div>
     </div>
   );
 };
