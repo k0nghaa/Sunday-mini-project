@@ -1,6 +1,16 @@
 import clsx from "clsx";
 
-export default function TimeCell({ time, isSelected, onToggle }) {
+type TimeCellProps = {
+  time: string;
+  isSelected: boolean;
+  onToggle: (time: string) => void;
+};
+
+export default function TimeCell({
+  time,
+  isSelected,
+  onToggle,
+}: TimeCellProps) {
   return (
     <button
       type="button"
