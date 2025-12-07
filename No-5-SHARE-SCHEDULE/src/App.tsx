@@ -4,25 +4,32 @@ import generateTimeSlots from "./utils/generateTimeSlots";
 import TimeGrid from "./components/TimeGrid";
 import UserList from "./components/UserList";
 
+type UserTimes = Record<string, Set<string>>;
+
 function App() {
   const timeSlots = generateTimeSlots(9, 20);
-  const [users, setUsers] = useState([]);
-  const [userTimes, setUserTimes] = useState({});
-  const [currentUser, setCurrentUser] = useState(null);
 
-  const toggleTime = (time) => {
+  const [users, setUsers] = useState<string[]>([]);
+  const [userTimes, setUserTimes] = useState<UserTimes>({});
+  const [currentUser, setCurrentUser] = useState<string | null>(null);
+
+  const toggleTime = (time: string) => {
     if (!currentUser) return alert("참여자를 먼저 선택하세요!");
 
     setUserTimes((prev) => {
-      const current = prev[currentUser] || new Set();
-
+      const current = prev[currentUser] || new Set<string>();
       const updated = new Set(current);
+
       if (updated.has(time)) updated.delete(time);
       else updated.add(time);
 
       return { ...prev, [currentUser]: updated };
     });
   };
+
+  const selectedSlots = currentUser
+    ? userTimes[currentUser] ?? new Set<string>()
+    : new Set<string>();
 
   return (
     <div className="app-container">
@@ -40,7 +47,7 @@ function App() {
         <section className="left">
           <TimeGrid
             slots={timeSlots}
-            selectedSlots={userTimes[currentUser] || new Set()}
+            selectedSlots={selectedSlots}
             toggleTime={toggleTime}
           />
         </section>

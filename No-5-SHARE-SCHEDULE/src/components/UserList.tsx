@@ -1,12 +1,19 @@
 import { useState } from "react";
 import clsx from "clsx";
 
+type UserListProps = {
+  users: string[];
+  setUsers: React.Dispatch<React.SetStateAction<string[]>>;
+  currentUser: string | null;
+  setCurrentUser: React.Dispatch<React.SetStateAction<string | null>>;
+};
+
 export default function UserList({
   users,
   setUsers,
   currentUser,
   setCurrentUser,
-}) {
+}: UserListProps) {
   const [newUser, setNewUser] = useState("");
 
   const addUser = () => {
@@ -15,7 +22,7 @@ export default function UserList({
     setNewUser("");
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       addUser();
